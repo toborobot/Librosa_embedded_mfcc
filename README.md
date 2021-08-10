@@ -13,6 +13,7 @@ pip3 install samplerate
 pip3 install soxr
 
 # Example of use
+```
 '''make a class prediction for one row of data'''
 def predict(row, model):
     # convert row to data
@@ -38,5 +39,5 @@ for i in range(10):
     yhat = predict(mfccs_mean, model)
     print(time.time()-time_start)
     print('Predicted: '+str(yhat))
-    
+```
     
