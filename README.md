@@ -44,4 +44,4 @@ for i in range(10):
 ```
 
 ### time of inference on RPI 4B4
-![alt text](https://avatars2.githubusercontent.com/u/11632545?v=3&s=200)
+![alt text](https://github.com/toborobot/Librosa_embedded_mfcc/blob/main/20210910RPI4B4_pytorch_test_inference_time.png)
