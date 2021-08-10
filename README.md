@@ -6,11 +6,13 @@ Librosa can't be installed (now 2021-08-10) for Raspberry 64-bit OS (numba and l
 But with pytorch model  we need to made MFCC embeddings which is used for inference and sound classification.
 
 # Dependencies need to be installed
+```
 #dependencies for custom librosa procedures
 pip3 install soundfile
 pip3 install audioread
 pip3 install samplerate
 pip3 install soxr
+```
 
 # Example of use
 ```
