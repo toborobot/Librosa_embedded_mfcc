@@ -1,11 +1,11 @@
 # Librosa_embedded_mfcc
 procedures from Librosa library for mfcc embeddings calculation of sound files for Raspberry Pi 64bit OS
 
-# Problem why this part of Librosa have made
+### Problem why this part of Librosa have made
 Librosa can't be installed (now 2021-08-10) for Raspberry 64-bit OS (numba and lliblvm problems).
 But with pytorch model  we need to made MFCC embeddings which is used for inference and sound classification.
 
-# Dependencies need to be installed
+### Dependencies need to be installed
 ```
 #dependencies for custom librosa procedures
 pip3 install soundfile
@@ -14,7 +14,7 @@ pip3 install samplerate
 pip3 install soxr
 ```
 
-# Example of use
+### Example of use
 ```
 '''make a class prediction for one row of data'''
 def predict(row, model):
@@ -42,4 +42,6 @@ for i in range(10):
     print(time.time()-time_start)
     print('Predicted: '+str(yhat))
 ```
-    
+
+### time of inference on RPI 4B4
+![alt text](https://avatars2.githubusercontent.com/u/11632545?v=3&s=200)
