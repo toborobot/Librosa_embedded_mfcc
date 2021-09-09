@@ -45,3 +45,18 @@ for i in range(10):
 
 ### time of inference on RPI 4B4
 ![alt text](https://github.com/toborobot/Librosa_embedded_mfcc/blob/main/20210910RPI4B4_pytorch_test_inference_time.png)
+
+### bug fixing 
+
+2021-09-08 - for preparing embeddings and for inference need to use good quality rate transform algorithms like sink_best from resample. put it like default for last version of procedures
+```
+def load(
+    path,
+    sr=22050,
+    mono=True,
+    offset=0.0,
+    duration=None,
+    dtype=np.float32,
+    res_type="sinc_best",
+):
+```
