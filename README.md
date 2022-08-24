@@ -2,7 +2,7 @@
 procedures from Librosa library for mfcc embeddings calculation of sound files for Raspberry Pi 64bit OS
 
 ### Problem why this part of Librosa have made
-Librosa can't be installed (now 2021-08-10) for Raspberry 64-bit OS (numba and lliblvm problems).
+Librosa can't be installed (now 2021-08-10) for RK3399 and Raspberry 64-bit OS (numba and lliblvm problems).
 But with pytorch model  we need to made MFCC embeddings which is used for inference and sound classification.
 
 ### Dependencies need to be installed
