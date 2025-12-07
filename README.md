@@ -60,3 +60,7 @@ def load(
     res_type="sinc_best",
 ):
 ```
+### bug fixing for new numpy
+```
+all np.float transpose to np.float 32
+```  
