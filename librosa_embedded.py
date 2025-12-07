@@ -56,8 +56,8 @@ def dtype_r2c(d, default=np.complex64):
     This is used to maintain numerical precision and memory footprint
     when constructing complex arrays from real-valued data
     (e.g. in a Fourier transform).
-    A `float32` (single-precision) type maps to `complex64`,
-    while a `float64` (double-precision) maps to `complex128`.
+    A `32` (single-precision) type maps to `complex64`,
+    while a `64` (double-precision) maps to `complex128`.
     Parameters
     ----------
     d : np.dtype
@@ -76,7 +76,7 @@ def dtype_r2c(d, default=np.complex64):
     numpy.dtype
     Examples
     --------
-    >>> librosa.util.dtype_r2c(np.float32)
+    >>> librosa.util.dtype_r2c(np.32)
     dtype('complex64')
     >>> librosa.util.dtype_r2c(np.int16)
     dtype('complex64')
@@ -84,9 +84,9 @@ def dtype_r2c(d, default=np.complex64):
     dtype('complex128')
     """
     mapping = {
-        np.dtype(np.float32): np.complex64,
-        np.dtype(np.float64): np.complex128,
-        np.dtype(np.float): np.complex,
+        np.dtype(np.32): np.complex64,
+        np.dtype(np.64): np.complex128,
+        #np.dtype(np.float): np.complex,
     }
 
     # If we're given a complex type already, return it
@@ -1808,7 +1808,7 @@ def normalize(S, norm=np.inf, axis=0, threshold=None, fill=None):
         raise ParameterError("Input must be finite")
 
     # All norms only depend on magnitude, let's do that first
-    mag = np.abs(S).astype(np.float)
+    mag = np.abs(S).astype(np.float32)
 
     # For max/min norms, filling with 1 works
     fill_norm = 1
