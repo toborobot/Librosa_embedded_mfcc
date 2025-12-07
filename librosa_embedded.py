@@ -83,10 +83,15 @@ def dtype_r2c(d, default=np.complex64):
     >>> librosa.util.dtype_r2c(np.complex128)
     dtype('complex128')
     """
+     mapping: Dict[DTypeLike, type] = {
+        np.dtype(np.float32): np.complex64,
+        np.dtype(np.float64): np.complex128,
+        np.dtype(float): np.dtype(complex).type,
+    }
     mapping = {
-        np.dtype(np.32): np.complex64,
-        np.dtype(np.64): np.complex128,
-        #np.dtype(np.float): np.complex,
+        np.dtype(np.float32): np.complex64,
+        np.dtype(np.float64): np.complex128,
+        np.dtype(np.float): np.dtype(complex).type,
     }
 
     # If we're given a complex type already, return it
