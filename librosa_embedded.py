@@ -1,5 +1,5 @@
 ############################################################################
-# custom embedded librosa lib v1.2 20210908 develop@toborobot.ru
+# custom embedded librosa lib v1.3 20251215 develop@toborobot.ru
 # from librosa modified to embedded devices
 ############################################################################
 
