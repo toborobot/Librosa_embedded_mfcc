@@ -16,7 +16,6 @@ import soundfile as sf
 import audioread
 import samplerate
 import pathlib
-import util
 
 # Object to hold FFT interfaces
 __FFTLIB = None
