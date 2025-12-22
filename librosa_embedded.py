@@ -7,6 +7,7 @@
 #from torch import Tensor
 import warnings
 import numpy as np
+from numpy.typing import DTypeLike
 import scipy
 import scipy.signal
 import scipy.fftpack
@@ -59,7 +60,35 @@ set_fftlib(None)
 # Constrain STFT block sizes to 256 KB
 MAX_MEM_BLOCK = 2 ** 8 * 2 ** 10
 
+def buf_to_float(
+    x: np.ndarray, *, n_bytes: int = 2, dtype: DTypeLike = np.float32
+) -> np.ndarray:
+    """Convert an integer buffer to floating point values.
+    This is primarily useful when loading integer-valued wav data
+    into numpy arrays.
 
+    Parameters
+    ----------
+    x : np.ndarray [dtype=int]
+        The integer-valued data buffer
+    n_bytes : int [1, 2, 4]
+        The number of bytes per sample in ``x``
+    dtype : numeric type
+        The target output type (default: 32-bit float)
+
+    Returns
+    -------
+    x_float : np.ndarray [dtype=float]
+        The input data buffer cast to floating point
+    """
+    # Invert the scale of the data
+    scale = 1.0 / float(1 << ((8 * n_bytes) - 1))
+
+    # Construct the format string
+    fmt = f"<i{n_bytes:d}"
+
+    # Rescale and format the data buffer
+    return scale * np.frombuffer(x, fmt).astype(dtype)
 
 def dtype_r2c(d, default=np.complex64):
     """Find the complex numpy dtype corresponding to a real dtype.
