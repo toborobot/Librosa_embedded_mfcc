@@ -14,10 +14,20 @@ from numpy.lib.stride_tricks import as_strided
 import soundfile as sf
 import audioread
 import samplerate
+import pathlib
+import util
 
 # Object to hold FFT interfaces
 __FFTLIB = None
 
+class LibrosaError(Exception):
+    """The root librosa exception class"""
+    pass
+
+
+class ParameterError(LibrosaError):
+    """Exception class for mal-formed inputs"""
+    pass
 
 def set_fftlib(lib=None):
     """Set the FFT library used by librosa.
